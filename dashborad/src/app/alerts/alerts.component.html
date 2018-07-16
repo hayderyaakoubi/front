@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-icon card-header-rose">
+            <div class="card-icon">
+              <i class="material-icons">notification_important</i>
+            </div>
+            <h4 class="card-title">Alerts List</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table" *ngIf="tableData1">
+                <thead>
+                <tr>
+                  <th class="text-center" >{{tableData1.headerRow[0]}}</th>
+                  <th>{{ tableData1.headerRow[1] }}</th>
+                  <th>{{ tableData1.headerRow[2] }}</th>
+                  <th>{{ tableData1.headerRow[3] }}</th>
+                  <th class="text-right">{{ tableData1.headerRow[4] }}</th>
+                  <th class="text-right">{{ tableData1.headerRow[5] }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let row of tableData1.dataRows">
+
+                  <td class="text-center">{{row.AlertId}}</td>
+                  <td>{{row.AlertText}}</td>
+                  <td>{{row.AlertType}}</td>
+                  <td>{{row.CreatedAt}}</td>
+                  <!--<td class="td-actions text-left">-->
+                  <!--<button type="button" class="btn btn-danger {{row[5]}}" (click)="showSwal()">-->
+                  <!--<i class="material-icons">close</i>-->
+                  <!--</button>-->
+                  <!--</td>-->
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+</div>

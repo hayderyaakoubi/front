@@ -1,0 +1,176 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary card-header-icon">
+                        <div class="card-icon">
+                           <mat-icon svgIcon="approve-invoice"></mat-icon>
+
+                        </div>
+                        <h4 class="card-title">Bills List</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="toolbar" >
+                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        </div>
+                        <div class="material-datatables">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover"
+                                   cellspacing="0" width="100%" style="width:100%">
+                                <thead>
+                                <tr  *ngIf="dataTable">
+<!--
+                                    <th>{{ dataTable.headerRow[0]}}</th>
+-->
+                                    <th>{{ dataTable.headerRow[1]}} TND</th>
+                                    <th>{{ dataTable.headerRow[2]}}</th>
+                                    <th>{{ dataTable.headerRow[3]}}</th>
+                                    <th>{{ dataTable.headerRow[4]}}</th>
+                                    <th>{{ dataTable.headerRow[5]}}</th>
+                                    <th>{{ dataTable.headerRow[6] }}</th>
+
+                                    <th class="disabled-sorting text-right">{{ dataTable.headerRow[7] }}</th>
+
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr  *ngIf="dataTable">
+<!--
+                                    <th>{{ dataTable.footerRow[0] }}</th>
+-->
+                                    <th>{{ dataTable.footerRow[1] }} TND</th>
+                                    <th>{{ dataTable.footerRow[2] }}</th>
+                                    <th>{{ dataTable.footerRow[3] }}</th>
+                                    <th>{{ dataTable.footerRow[4] }}</th>
+                                    <th>{{ dataTable.headerRow[5] }}</th>
+                                    <th>{{ dataTable.headerRow[6] }}</th>
+                                    <th class="text-right">{{ dataTable.footerRow[7] }}</th>
+                                </tr>
+                                </tfoot>
+                                <tbody *ngIf="dataTable">
+                                <tr *ngFor="let row of dataTable.dataRows">
+<!--
+                                    <td>{{row.Bill_id}}</td>
+-->
+                                    <td>{{row.Amount}}</td>
+                                    <td>{{row.CreatedAt | date:'mediumDate'}}</td>
+                                    <td>{{row.From | date:'mediumDate'}}</td>
+                                    <td>{{row.To | date:'mediumDate'}}</td>
+                                    <td>
+                                        <div [ngSwitch]="row.PaymentStatus" align="center">
+                                            <div *ngSwitchCase="'False'" >
+                                    <!--<td>hi</td>-->
+                                              <!--  <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value=""  checked>
+                                                        <span class="form-check-sign">
+                                                    <span class="check"></span>
+                                                  </span>
+                                                    </label>
+                                                </div>-->
+                                            <!--    <i class="material-icons">
+                                                    cancel_presentation
+                                                </i>-->
+                                                <mat-icon svgIcon="notpaid"></mat-icon>
+
+                                            </div>
+                                            <div *ngSwitchDefault>
+                                          <!--      <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               disabled>
+                                                        <span class="form-check-sign">
+                                                    <span class="check"></span>
+                                                  </span>
+                                                    </label>
+                                                </div>-->
+                                                <mat-icon svgIcon="check"></mat-icon>
+
+                                                <!--  <i class="material-icons">
+                                                      done
+                                                  </i>-->
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{row.PaymentDate | date}}</td>
+                                    <td class="text-right">
+                                        <a class="btn btn-link btn-warning btn-just-icon edit"><i
+                                                class="material-icons">dvr</i></a>
+                                        <a class="btn btn-link btn-danger btn-just-icon remove"><i
+                                                class="material-icons">close</i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end content-->
+                </div>
+                <!--  end card  -->
+            </div>
+            <!-- end col-md-12 -->
+        </div>
+        <!-- end row -->
+    </div>
+</div>
+<ng-template #loading>loading animation...</ng-template>
+        <div class="col-10 offset-1">
+
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Add a new Bill
+                            <!--<small class="description">Vertical Tabs</small>-->
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <!--
+                                                  color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                              -->
+                                <ul class="nav nav-pills nav-pills-rose nav-pills-icons flex-column" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#File" role="tablist">
+                                            <i class="material-icons">dashboard</i> File Upload
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#form" role="tablist">
+                                            <i class="material-icons">schedule</i> Form
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="File">
+                                        <div  align="center">
+                                            <legend>Upload Your Bill</legend>
+                                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail">
+                                                    <img src="../../assets/img/image_placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                                <div>
+                                <span class="btn btn-rose btn-round btn-file">
+                                    <span class="fileinput-new">Select image</span>
+                                    <span class="fileinput-exists">Change</span>
+                                    <input type="file" name="..."/>
+                                </span>
+                                                    <a href="" class="btn btn-danger btn-round fileinput-exists"
+                                                       data-dismiss="fileinput">
+                                                        <i class="fa fa-times"></i> Remove</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane" id="form">
+                                        <app-bill-form></app-bill-form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

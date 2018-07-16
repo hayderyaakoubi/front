@@ -1,0 +1,97 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="header text-center">
+            <h3 class="title">Energy Dashboard</h3>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-0 ">
+                <div class="card">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <mat-icon svgIcon="renewable-energy"></mat-icon>
+
+                        </div>
+                        <h4 class="card-title">Monthly Consumption</h4>
+                    </div>
+                    <div class="card-body" align="center" *ngIf="gaugeValue">
+
+                        <ngx-gauge [type]="gaugeType"
+                                   [label]="gaugeLabel"
+                                   [append]="gaugeAppendText"
+                                   [size]="gaugesize"
+                                   [value]="gaugeValue"
+                                   [cap]="gaugecap"
+                                   [thresholds]="thresholdConfig"
+                                   [thick]="gaugethick"
+                                   [max]="maxsize">
+                            <ngx-gauge-append>
+                                <span style="color:black;font-size:22px">{{gaugeAppendText}}</span>
+                            </ngx-gauge-append>
+                            <ngx-gauge-value>
+                                <span style="color:black;font-size:32px">{{gaugeValue}}</span>
+                            </ngx-gauge-value>
+                        </ngx-gauge>
+
+                    </div>
+                    <div class="card-content" align="center" *ngIf="consumptionGaugeValue">
+
+                        <ngx-gauge [type]="consumptionGaugeType"
+                                   [value]="consumptionGaugeValue"
+                                   [label]="consumptionGaugeLabel"
+                                   [append]="consumptionGaugeAppendText"
+                                   [size]="consumptionGaugesize"
+                                   [cap]="consumptionGaugecap"
+                                   [thresholds]="consumptionGaugethresholdConfig"
+                                   [thick]="consumptionGaugethick"
+                                    [max]="consumptionGaugemax">
+
+                            <ngx-gauge-append>
+                                <span style="color:black;font-size:22px">{{consumptionGaugeAppendText}}</span>
+                            </ngx-gauge-append>
+                            <ngx-gauge-value>
+                                <span style="color:black;font-size:32px">{{consumptionGaugeValue}}</span>
+                            </ngx-gauge-value>
+                        </ngx-gauge>
+
+
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="price">
+                            <h4>Unit Price: {{unitPrice}} TND</h4>
+                            <h4>Current Monthly Consumption Goal: {{Goal}} TND</h4>
+                        </div>
+                        <div class="stats pull-right">
+                            <i class="material-icons">access_time</i> last updated on : {{updated}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-1">
+                <div class="row"></div>
+                <div class="row">
+
+                    <div class="card card-stats">
+                        <div class="card-header card-header-rose card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">access_time</i>
+
+                                <!--<i class="material-icons">access_time</i>-->
+                            </div>
+                            <p class="card-category">Real Time Electricity Consumption</p>
+                            <h2 class="card-title">{{realTimeValue}} Watts</h2>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats pull-right">
+                                <i class="material-icons">access_time</i> last updated on {{updated}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-line></app-line>
+
+</div>

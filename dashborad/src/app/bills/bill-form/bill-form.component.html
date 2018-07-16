@@ -1,0 +1,126 @@
+<form [formGroup]="BillForm" (ngSubmit)="onSubmit()">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-6 mr-auto">
+                <!--<legend>Datepicker</legend>-->
+                <mat-form-field>
+                    <input matInput [matDatepicker]="pickerFrom" (click)="pickerFrom.open()" placeholder="From"
+                           formControlName="From">
+                    <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerFrom></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <!--     <div class="input-group form-control-lg">
+                     <div class="input-group-prepend">
+                                   <span class="input-group-text">
+                                     <i class="material-icons">face</i>
+                                   </span>
+                     </div>
+                     <mat-form-field class="example-full-width has-label">
+                         <input type="date"
+                                name="from"
+                                matInput
+                                placeholder="From"
+                                formControlName="From">
+                     </mat-form-field>
+                 </div>-->
+            <div class="col-md-6 mr-auto">
+                <!--<legend>Datepicker</legend>-->
+                <mat-form-field>
+                    <input matInput [matDatepicker]="pickerTo" (click)="pickerTo.open()" placeholder="To"
+                           formControlName="To">
+                    <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerTo></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <!--
+                    <div class="input-group form-control-lg">
+                        <div class="input-group-prepend">
+                                      <span class="input-group-text">
+                                        <i class="material-icons">record_voice_over</i>
+                                      </span>
+                        </div>
+                        <mat-form-field class="example-full-width has-label">
+                            <input type="date"
+                                   name="to"
+                                   matInput
+                                   placeholder="To"
+                                   formControlName="To">
+                        </mat-form-field>
+                    </div>
+            --></div>
+        <div class="input-group form-control-lg col-lg-5">
+            <!--  <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <i class="material-icons">face</i>
+                            </span>
+              </div>-->
+            <mat-form-field class="example-full-width has-label">
+                <input type="number"
+                       name="amount"
+                       min="0"
+                       matInput
+                       placeholder="Amount"
+                       formControlName="Amount">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="input-group form-control-lg">
+            <!--   <div class="input-group-prepend">
+                             <span class="input-group-text">
+                               <i class="material-icons"></i>
+                             </span>
+               </div>-->
+                <div class="input-group-prepend">
+                    <div class="row">
+                        <label class="col-form-label">Did you pay your bill</label>
+                        <div class="col-2  checkbox-radios">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input #yesC class="form-check-input" type="radio" name="PaymentStatus"
+                                           value="True" checked formControlName="PaymentStatus"> Yes
+                                    <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input #noC (ngModelChange)="setPaymentDateNull()"  class="form-check-input" type="radio" name="PaymentStatus"
+                                           value="False" formControlName="PaymentStatus" > No
+                                    <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6 col-offset-2" *ngIf="yesC.checked">
+                            <!--<legend>Datepicker</legend>-->
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="pickerpay" (click)="pickerpay.open()"
+                                       placeholder="PaymentDate"
+                                       formControlName="PaymentDate">
+                                <mat-datepicker-toggle matSuffix [for]="pickerpay"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerpay></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+            <!--  <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Payment Date" formControlName="PaymentDate"
+                         type="date" id="PaymentDate" name="PaymentDate">
+              </mat-form-field>-->
+        </div>
+    </div>
+    <div class="ml-auto">
+        <input type="submit" class="btn btn-finish btn-fill btn-rose btn-wd" name="finish" value="Confirm"
+               [disabled]="BillForm.invalid">
+
+    </div>
+</form>
+<!--
+<pre>{{BillForm.value| json}}</pre>
+-->

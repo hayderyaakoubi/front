@@ -1,0 +1,43 @@
+<div class="col-11">
+    <div class="card">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">insert_chart</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">Last Day Consumption
+                    <!--<small>- Line Chart</small>-->
+                </h4>
+                <canvas id="hourly">{{ Hourly }}</canvas>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">insert_chart</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">Last Week Consumption
+                    <!--<small>- Line Chart</small>-->
+                </h4>
+                <canvas id="daily" height="150px">{{ Daily }}</canvas>
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">insert_chart</i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">Last Month Consumption
+                    <!--<small>- Line Chart</small>-->
+                </h4>
+                <canvas id="monthly" height="150px">{{ Monthly }}</canvas>
+            </div>
+        </div>
+
+    </div>
+</div>

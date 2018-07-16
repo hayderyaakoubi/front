@@ -1,0 +1,150 @@
+<!--<div class="main-content">-->
+    <!--<div class="container">-->
+        <!--<div class="col-lg-10 col-md- col-sm-6 ml-auto mr-auto">-->
+        <!--<div class="col-lg-10 col-md- col-sm-6 ml-auto mr-auto">-->
+            <!--<form class="form" method="post" action="">-->
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <!--<div [hidden]="form.submitted">-->
+                <!--</div>-->
+             <!--   <div class="card card-login card-hidden">
+                    <div class="card-header card-header-rose text-center">
+                        <h4 class="card-title">Settings</h4>
+                    </div>-->
+                    <!--<div class="card-body ">-->
+                        <p class="card-description text-center">Set up your chatbot settings</p>
+
+                         <div class="card">
+                             <div class="card-header card-header-icon card-header-warning">
+                                 <div class="card-icon">
+                                     <i class="material-icons">phonelink_ring</i>
+                                 </div>
+                                 <h4 class="card-title">Summary Frequency</h4>
+                             </div>
+                             <div class="card-body">
+                                 <div class="form-group">
+                                 <!--    <mat-form-field class="col-4">
+                                         <mat-select class="form-control" placeholder="Select Frequency"
+                                                     [(ngModel)]="selectedValue" formControl="frequency"
+                                                     name="frequency">
+                                             <mat-option *ngFor="let f of freq" [value]="f.value">
+                                                 {{ f.viewValue }}
+                                             </mat-option>
+                                         </mat-select>
+                                     </mat-form-field>
+                                     <p> Selected value: {{selectedValue}} </p>
+-->
+                                     <div class="input-group-prepend">
+                                     <div class="row">
+
+                                         <div class="col-sm-3 col-sm-offset-1 checkbox-radios">
+                                             <div class="form-check">
+                                                 <label class="form-check-label">
+                                                     <input class="form-check-input" type="radio" name="Frequency"
+                                                            value="weelky" checked formControlName="Frequency"> Weekly
+                                                     <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                                                 </label>
+                                             </div>
+                                             <div class="form-check">
+                                                 <label class="form-check-label">
+                                                     <input class="form-check-input" type="radio" name="Frequency"
+                                                            value="daily" formControlName="Frequency"> Daily
+                                                     <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                                                 </label>
+                                             </div>
+                                             <div class="form-check">
+                                                 <label class="form-check-label">
+                                                     <input class="form-check-input" type="radio" name="Frequency"
+                                                            value="monthly" formControlName="Frequency"> Monthly
+                                                     <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                                                 </label>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+
+
+                                 </div>
+                             </div>
+                         </div>
+                        <div class="card">
+                            <div class="card-header card-header-icon card-header-success">
+                                <div class="card-icon">
+                                    <i class="material-icons">star</i>
+                                </div>
+                                <h4 class="card-title">Monthly Consumption Goal</h4>
+                            </div>
+                            <div class="card-body">
+                            <span class="bmd-form-group">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                 <i class="material-icons">star</i>
+                                </span>
+                                 <input type="number" min=0 class="form-control" placeholder="Goal"
+                                        formControlName="Goal">
+                                </div>
+                            </span>
+                            </div>
+                        </div>
+                          <div class="card">
+                              <div class="card-header card-header-icon card-header-primary">
+                                  <div class="card-icon">
+                                      <i class="material-icons">timer</i>
+                                  </div>
+                                  <h4 class="card-title">Do Not Disturb</h4>
+                              </div>
+                              <div class="card-body">
+                          <span class="bmd-form-group">
+                          <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">timer</i>
+                      </span>
+
+                    <mat-input-container class="col-lg-5">
+                                      <input matInput
+                                             placeholder="From"
+                                             formControlName="DoNotDisturbFrom" disabled>
+                                  </mat-input-container>
+                                  <button (click)="openFrom()" class="btn btn-primary btn-round btn-fab btn-fab-mini">
+                                      <i class="material-icons">timer</i>
+                                  </button>
+
+                      <mat-input-container class="col-lg-5">
+                          <input matInput
+                                 placeholder="To"
+                                 value="{{selectedTimeTo}}"
+                                 disabled
+                                 formControlName="DoNotDisturbTo">
+                                  </mat-input-container>
+                      <button (click)="openTo()" class="btn btn-primary btn-round btn-fab btn-fab-mini">
+                                      <i class="material-icons">timer</i>
+
+                                  </button>
+                        </div>
+                  </div>
+                          </span>
+                              </div>
+                          </div>
+
+                          <div class="col-6">
+                              <!--<p>your Current Unit price : </p>-->
+                          </div>
+                    <!--</div>-->
+                                        <div class="card-footer justify-content-center">
+                                            <button mat-raised-button type="submit" class="btn btn-fill btn-rose">Submit</button>
+                                            <!--<button class="btn btn-rose btn-link btn-lg">Save</button>-->
+                                        </div>
+                <!--</div>-->
+            </form>
+<!--        </div>
+    </div>
+
+</div>-->
+<!--
+<pre>{{form.value| json}}</pre>-->
